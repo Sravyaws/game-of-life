@@ -1,5 +1,5 @@
 pipeline {
-    agent { lable 'node'} 
+    agent { label 'node'} 
     stages {
         stage('vcs') {
             steps {
