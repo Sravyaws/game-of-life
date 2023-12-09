@@ -6,4 +6,10 @@ node('node') {
     stage('build') {
         sh 'export PATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:$PATH && mvn clean package'
     }
+    stage('archive artifacts') {
+        archiveArtifacts artifacts: '**/*.war'
+    }
+    stage('test results') {
+        junit '**/TEST-*xml'
+    }
 }
