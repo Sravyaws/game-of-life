@@ -17,8 +17,10 @@ pipeline {
 
         }
         stage('archive artifacts and publish results') {
-            archiveArtifacts artifacts: '**/*.war',
-            junit '**/TEST-*.xml'
+            steps {
+                archiveArtifacts artifacts: '**/*.war',
+                junit '**/TEST-*.xml'
+            }
         }
     }
 }
